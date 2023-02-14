@@ -35,10 +35,15 @@ int main()
         free(input); // deallocate
     } while (isInputInteger == false);
 
+    printf("---------------\n");
+    printf("| Fahr\t| Cel |\n");
+    printf("---------------\n");
     while (fahrenheit <= limit)
     {
         celcius = 5 * (fahrenheit - 32) / 9;
-        printf("%d\t%d\n", fahrenheit, celcius);
+
+        printf("| %d\t| %d |\n", fahrenheit, celcius);
+        printf("---------------\n");
         fahrenheit += step;
     }
     return 0;
