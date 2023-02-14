@@ -2,7 +2,7 @@
 #include <ctype.h>
 int main()
 {
-
+    /**this script counts the number of whitespace present in your input*/
     char input[60]; // buffer overflow 💀
     int whiteSpaceCounter = 0;
     printf("Enter something: \n");
