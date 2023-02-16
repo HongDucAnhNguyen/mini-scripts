@@ -6,7 +6,11 @@
 int main()
 {
 
-    /**prints a table of fahrenheit temperature values and their corresponding Celcius conversion*/
+    /**prints a table of fahrenheit temperature values and their corresponding Celcius conversion
+     *
+     * starting value for fahrenheit temperature is based off of user input
+     *
+     */
 
     int initialValue;
     bool isInputInteger;
@@ -17,7 +21,7 @@ int main()
     int limit = 200; // max value in the table
     do
     {
-        char *input = (char *)malloc(100);
+        char *input = (char *)malloc(100); // type casted as char
         printf("Enter starting value:");
         scanf("%s", input);
         for (initialValue = 0; initialValue < strlen(input); ++initialValue)
