@@ -22,12 +22,13 @@ int main()
     do
     {
         char *input = (char *)malloc(100); // type casted as char
-        printf("Enter starting value:");
-        scanf("%s", input);
-        for (initialValue = 0; initialValue < strlen(input); ++initialValue)
+        printf("Enter starting value:\n");
+        fgets(input, 100, stdin);
+        for (initialValue = 0; initialValue < strlen(input) - 1; ++initialValue) 
         {
             if (!isdigit(input[initialValue]))
             {
+                printf("Input must be of type number!\n");
                 isInputInteger = false;
             }
             else

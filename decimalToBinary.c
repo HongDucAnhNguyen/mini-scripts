@@ -15,7 +15,7 @@ int main()
     do
     {
         printf("Enter Decimal:\n");
-        scanf("%s", &input);
+        fgets(input, 100, stdin);
         number = strtol(input, &endptr, 10);
 
         if (number == 0)
