@@ -28,7 +28,7 @@ int main()
         {
             if (!isdigit(input[initialValue]))
             {
-                printf("Input must be of type number!\n");
+                printf("Input must be of type number!\n ");
                 isInputInteger = false;
             }
             else

@@ -14,7 +14,7 @@ int main()
 
     do
     {
-        printf("Enter Decimal:\n");
+        printf("Enter Decimal: ");
         fgets(input, 100, stdin);
         number = strtol(input, &endptr, 10);
 
@@ -35,6 +35,6 @@ int main()
         sprintf(remainderToStr, "%d", remainderDigit);
         strcat(result, remainderToStr);
     }
-    printf("%s", strrev(result));
+    printf("Result: %s", strrev(result));
     return 0;
 }
