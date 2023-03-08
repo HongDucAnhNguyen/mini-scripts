@@ -1,4 +1,8 @@
 Book #1:
-- Title: second book
+- Title: firstbook
 - Genre: fiction
+
+Book #2:
+- Title: secondbook
+- Genre: religion
 

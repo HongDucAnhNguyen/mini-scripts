@@ -6,7 +6,7 @@
 void display(Book bookList[], int capacity);
 void addBook(char title[50], char genre[50], Book bookList[], int newBookIndex);
 void deleteBook(Book bookList[], int capacity, int bookIndex);
-void saveDataToFile(Book bookList[], int capacity);
+void saveDataToFile(Book bookList[], int capacity, char mode[5]);
 int main()
 {
     char *endptr;         // for strtol
@@ -22,6 +22,7 @@ int main()
     char chosenIndexStr[5];
     // chosen index to long type
     long chosenIndex;
+    char mode[5];
 
     do
     {
@@ -53,7 +54,8 @@ int main()
             // reallocate mem for new capacity
             bookList = (Book *)realloc(bookList, sizeof(Book) * capacity);
             addBook(titleInput, genreInput, bookList, newBookIndex);
-            saveDataToFile(bookList, capacity);
+            strcpy(mode, "w");
+            saveDataToFile(bookList, capacity, mode);
             printf("\n");
             display(bookList, capacity);
             // for every append, book index should bubble to end of list
@@ -77,13 +79,14 @@ int main()
                     capacity -= 1;
                     // reallocate mem for books array
                     bookList = (Book *)realloc(bookList, sizeof(Book) * capacity);
-                    saveDataToFile(bookList, capacity);
+                    strcpy(mode, "w");
+                    saveDataToFile(bookList, capacity, mode);
                     printf("\n");
                     display(bookList, capacity);
                 }
                 else
                 {
-                    printf("Collection is empty\n");
+                    printf("Collection is empty\n\n");
                 }
             }
             else
@@ -143,7 +146,7 @@ void display(Book bookList[], int capacity)
 
     for (int i = 0; i < bookListLength; i++)
     {
-        printf("Book #%d:\n- Title: %s- Genre: %s", i + 1, bookList[i].title, bookList[i].genre);
+        printf("Book #%d:\n- Title: %s- Genre: %s;", i + 1, bookList[i].title, bookList[i].genre);
         printf("\n");
     }
 }
@@ -153,9 +156,9 @@ void display(Book bookList[], int capacity)
  * - LOAD DATA FROM FILE ON STARTUP
  * */
 
-void saveDataToFile(Book bookList[], int capacity)
+void saveDataToFile(Book bookList[], int capacity, char mode[5])
 {
-    FILE *fileOut = fopen("myLib.txt", "w");
+    FILE *fileOut = fopen("myLib.txt", mode);
     int bookListLength = sizeof(Book) * capacity / sizeof(Book);
     for (int i = 0; i < bookListLength; i++)
     {
